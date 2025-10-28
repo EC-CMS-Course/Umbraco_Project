@@ -1,0 +1,6 @@
+﻿.form-btn {
+    @apply w-full text-primary;
+}
+
+/*importeras i input.css*/
+/*Om jag ska ta bort så radera både filen och importen i input.css*/
