@@ -12,6 +12,7 @@
     --default-mono-font-family: var(--font-mono);
     --color-primary: #4F5955;
     --font-poppins: "poppins", sans-serif;
+    --text-vad: clamp(1rem, 0.4718rem + 2.1127vw, 2.5rem);
   }
 }
 @layer base {
@@ -169,15 +170,28 @@
   .block {
     display: block;
   }
+  .text-\[2\.5rem\] {
+    font-size: 2.5rem;
+  }
+  .text-vad {
+    font-size: var(--text-vad);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+}
+.form-btn {
+  width: 100%;
+  color: var(--color-primary);
 }
 body {
   font-family: var(--font-poppins);
 }
 .rte h3 {
-  font-size: 2.5rem;
+  font-size: var(--text-vad);
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);

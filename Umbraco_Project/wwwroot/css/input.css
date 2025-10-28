@@ -1,4 +1,5 @@
 ﻿@import "tailwindcss";
+@import "./forms.css";
 
 @theme {
     --color-neutral: #ffffff;
@@ -16,8 +17,8 @@
     --color-border-gray: #EAEAEA;
     --color-border-400: #C7C8C9;
     --color-support-card: #C4C4C4;
-
     --font-poppins: "poppins", sans-serif;
+/*    --text-vad: clamp(1rem, 0.4718rem + 2.1127vw, 2.5rem);*/
 }
 
 
@@ -26,7 +27,7 @@ body {
 }
 
 .rte h3 {
-    @apply text-[2.5rem] text-primary font-bold;
+    @apply text-vad text-primary font-bold;
 }
 
 
