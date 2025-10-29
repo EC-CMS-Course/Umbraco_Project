@@ -7,12 +7,14 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-white: #F2EDDC;
+    --spacing: 0.25rem;
+    --container-7xl: 80rem;
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-primary: #4F5955;
     --font-poppins: "poppins", sans-serif;
-    --text-vad: clamp(1rem, 0.4718rem + 2.1127vw, 2.5rem);
   }
 }
 @layer base {
@@ -164,37 +166,122 @@
   }
 }
 @layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .relative {
+    position: relative;
+  }
   .static {
     position: static;
+  }
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+  .z-\[-1\] {
+    z-index: -1;
   }
   .block {
     display: block;
   }
-  .text-\[2\.5rem\] {
-    font-size: 2.5rem;
+  .flex {
+    display: flex;
   }
-  .text-vad {
-    font-size: var(--text-vad);
+  .grid {
+    display: grid;
+  }
+  .h-full {
+    height: 100%;
+  }
+  .w-5\/12 {
+    width: calc(5/12 * 100%);
+  }
+  .w-6\/12 {
+    width: calc(6/12 * 100%);
+  }
+  .w-\[5\/12\] {
+    width: 5/12;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
+  .self-start {
+    align-self: flex-start;
+  }
+  .rounded {
+    border-radius: 0.25rem;
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .object-cover {
+    object-fit: cover;
+  }
+  .px-10 {
+    padding-inline: calc(var(--spacing) * 10);
+  }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
+  .py-\[7rem\] {
+    padding-block: 7rem;
+  }
+  .text-\[1rem\] {
+    font-size: 1rem;
+  }
+  .text-\[4\.375rem\] {
+    font-size: 4.375rem;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
   }
   .text-primary {
     color: var(--color-primary);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .no-underline {
+    text-decoration-line: none;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
 }
-.form-btn {
-  width: 100%;
-  color: var(--color-primary);
-}
 body {
   font-family: var(--font-poppins);
 }
 .rte h3 {
-  font-size: var(--text-vad);
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
+}
+.wrapper {
+  margin-inline: auto;
+  max-width: var(--container-7xl);
+  padding-inline: calc(var(--spacing) * 4);
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-blur {
   syntax: "*";
@@ -249,13 +336,11 @@ body {
   syntax: "*";
   inherits: false;
 }
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
+      --tw-leading: initial;
+      --tw-font-weight: initial;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -269,7 +354,6 @@ body {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
-      --tw-font-weight: initial;
     }
   }
 }

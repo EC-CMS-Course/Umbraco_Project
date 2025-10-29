@@ -4,5 +4,4 @@
 	Layout = "MainLayout.cshtml";
 }
 
-<h1 class="text-primary text-vad">@Model.HeroTitle</h1>
-@*Lägg in i h1an class="text-vad" *@
+@Html.GetBlockListHtml(Model.Sections)

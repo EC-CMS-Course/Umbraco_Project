@@ -1,5 +1,5 @@
 ﻿@import "tailwindcss";
-@import "./forms.css";
+/*@import "./forms.css";*/
 
 @theme {
     --color-neutral: #ffffff;
@@ -27,7 +27,12 @@ body {
 }
 
 .rte h3 {
-    @apply text-vad text-primary font-bold;
+    @apply text-primary font-bold;
+/*Lägg till text-vad*/
+}
+
+.wrapper {
+    @apply max-w-7xl mx-auto px-4;
 }
 
 
