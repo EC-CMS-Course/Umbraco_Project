@@ -1,5 +1,21 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceDetail>
 @{
 	Layout = "mainLayout.cshtml";
 }
+
+<section class="py-16">
+	<div class="wrapper grid grid-cols-12 gap-8">
+
+		<aside class="col-span-3 hidden md:grid">
+			@Html.GetBlockListHtml(Model.ServiceDetailAsidesList)
+		</aside>
+
+		<div class="col-span-1 block w-px border-border-gray"></div>
+
+		<div class="col-span-8 grid gap-2 w-full">
+			<div class="rte"></div>
+		</div>
+
+	</div>
+</section>

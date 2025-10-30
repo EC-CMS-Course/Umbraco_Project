@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
-	/// <summary>Service Detail</summary>
-	[PublishedModel("serviceDetail")]
-	public partial class ServiceDetail : PublishedContentModel
+	/// <summary>Aside Support Card</summary>
+	[PublishedModel("asideSupportCard")]
+	public partial class AsideSupportCard : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
-		public new const string ModelTypeAlias = "serviceDetail";
+		public new const string ModelTypeAlias = "asideSupportCard";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
@@ -34,14 +34,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<ServiceDetail, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<AsideSupportCard, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public ServiceDetail(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+		public AsideSupportCard(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,43 +50,27 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Body
+		/// Aside Support Card BgImage
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceBody")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString ServiceBody => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "serviceBody");
+		[ImplementPropertyType("asideSupportCardBgImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops AsideSupportCardBgImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "asideSupportCardBgImage");
 
 		///<summary>
-		/// Image
+		/// Aside Support Card Text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceCardImage")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ServiceCardImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "serviceCardImage");
+		[ImplementPropertyType("asideSupportCardText")]
+		public virtual string AsideSupportCardText => this.Value<string>(_publishedValueFallback, "asideSupportCardText");
 
 		///<summary>
-		/// Text
+		/// Aside Support Card Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceCardText")]
-		public virtual string ServiceCardText => this.Value<string>(_publishedValueFallback, "serviceCardText");
-
-		///<summary>
-		/// Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceCardTitle")]
-		public virtual string ServiceCardTitle => this.Value<string>(_publishedValueFallback, "serviceCardTitle");
-
-		///<summary>
-		/// Widgets
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("serviceDetailAsidesList")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ServiceDetailAsidesList => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "serviceDetailAsidesList");
+		[ImplementPropertyType("asideSupportCardTitle")]
+		public virtual string AsideSupportCardTitle => this.Value<string>(_publishedValueFallback, "asideSupportCardTitle");
 	}
 }

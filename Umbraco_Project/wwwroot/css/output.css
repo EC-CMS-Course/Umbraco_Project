@@ -12,6 +12,7 @@
     --container-7xl: 80rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
@@ -20,6 +21,9 @@
     --color-white-100: #F7F7F7;
     --color-primary: #4F5955;
     --color-secondary: #D9C3A9;
+    --color-body-text: #535656;
+    --color-border-gray: #EAEAEA;
+    --color-support-card: #C4C4C4;
     --font-poppins: "poppins", sans-serif;
   }
 }
@@ -184,8 +188,38 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
+  .top-3 {
+    top: calc(var(--spacing) * 3);
+  }
+  .top-\[50\%\] {
+    top: 50%;
+  }
+  .right-0 {
+    right: calc(var(--spacing) * 0);
+  }
+  .right-4 {
+    right: calc(var(--spacing) * 4);
+  }
+  .bottom-0 {
+    bottom: calc(var(--spacing) * 0);
+  }
   .z-\[-1\] {
     z-index: -1;
+  }
+  .col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+  .col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+  .col-span-8 {
+    grid-column: span 8 / span 8;
+  }
+  .mt-4 {
+    margin-top: calc(var(--spacing) * 4);
   }
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
@@ -202,6 +236,12 @@
   .grid {
     display: grid;
   }
+  .hidden {
+    display: none;
+  }
+  .table {
+    display: table;
+  }
   .h-\[220px\] {
     height: 220px;
   }
@@ -211,11 +251,23 @@
   .min-h-\[350px\] {
     min-height: 350px;
   }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
   .w-6\/12 {
     width: calc(6/12 * 100%);
   }
+  .w-\[1px\] {
+    width: 1px;
+  }
   .w-full {
     width: 100%;
+  }
+  .w-px {
+    width: 1px;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -223,8 +275,14 @@
   .cursor-pointer {
     cursor: pointer;
   }
+  .resize {
+    resize: both;
+  }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
   .flex-col {
     flex-direction: column;
@@ -250,15 +308,22 @@
   .rounded {
     border-radius: 0.25rem;
   }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
   }
+  .border-border-gray {
+    border-color: var(--color-border-gray);
+  }
   .border-white-100 {
     border-color: var(--color-white-100);
   }
-  .bg-\[\@bgColor\] {
-    background-color: @bgColor;
+  .bg-\[\#C4C4C4\] {
+    background-color: #C4C4C4;
   }
   .bg-\[\@sectionBgColor\] {
     background-color: @sectionBgColor;
@@ -269,8 +334,20 @@
   .bg-primary {
     background-color: var(--color-primary);
   }
+  .bg-support-card {
+    background-color: var(--color-support-card);
+  }
+  .bg-white-100 {
+    background-color: var(--color-white-100);
+  }
   .object-cover {
     object-fit: cover;
+  }
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
   }
   .p-\[1\.5rem\] {
     padding: 1.5rem;
@@ -280,6 +357,9 @@
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
   }
   .py-\[4rem\] {
     padding-block: 4rem;
@@ -294,11 +374,14 @@
   .text-\[\.875rem\] {
     font-size: .875rem;
   }
+  .text-\[0\.875rem\] {
+    font-size: 0.875rem;
+  }
+  .text-\[1\.375rem\] {
+    font-size: 1.375rem;
+  }
   .text-\[1rem\] {
     font-size: 1rem;
-  }
-  .text-\[2\.5rem\] {
-    font-size: 2.5rem;
   }
   .text-\[4\.375rem\] {
     font-size: 4.375rem;
@@ -311,15 +394,25 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .text-body-text {
+    color: var(--color-body-text);
   }
   .text-primary {
     color: var(--color-primary);
   }
   .text-secondary {
     color: var(--color-secondary);
+  }
+  .text-support-card {
+    color: var(--color-support-card);
   }
   .text-white {
     color: var(--color-white);
@@ -330,12 +423,63 @@
   .no-underline {
     text-decoration-line: none;
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
-  .md\:grid-cols-3 {
+  .placeholder\:text-\[0\.6125rem\] {
+    &::placeholder {
+      font-size: 0.6125rem;
+    }
+  }
+  .placeholder\:text-\[0\.8125rem\] {
+    &::placeholder {
+      font-size: 0.8125rem;
+    }
+  }
+  .placeholder\:text-\[8\.125rem\] {
+    &::placeholder {
+      font-size: 8.125rem;
+    }
+  }
+  .placeholder\:text-\[\#9C9EA6\] {
+    &::placeholder {
+      color: #9C9EA6;
+    }
+  }
+  .placeholder\:italic {
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+  .sm\:grid {
+    @media (width >= 40rem) {
+      display: grid;
+    }
+  }
+  .md\:grid {
     @media (width >= 48rem) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: grid;
+    }
+  }
+  .md\:placeholder\:text-\[0\.8125rem\] {
+    @media (width >= 48rem) {
+      &::placeholder {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+  .lg\:placeholder\:text-\[0\.8125rem\] {
+    @media (width >= 64rem) {
+      &::placeholder {
+        font-size: 0.8125rem;
+      }
     }
   }
 }
@@ -385,6 +529,11 @@ body {
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -450,6 +599,7 @@ body {
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;

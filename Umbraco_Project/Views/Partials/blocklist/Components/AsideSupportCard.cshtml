@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.AsideSupportCard)Model.Content;
+}
+
+<div class="relative flex flex-col gap-4 p-4 bg-primary mt-4">
+    @if (content.AsideSupportCardBgImage != null)
+    {
+        <div class="absolute bottom-0 right-0">
+            <img class="" src="@content.AsideSupportCardBgImage.Url()" />
+        </div>
+    }
+    <h2 class="text-secondary text-[1.375rem] font-semibold">@content.AsideSupportCardTitle</h2>
+    <p class="text-secondary text-[0.875rem] font-normal">@content.AsideSupportCardText</p>
+    <form class="relative">
+        <i class="fa-regular fa-envelope absolute right-4 top-3 text-primary"></i>
+        <input 
+            placeholder="E-mail address"
+               class="bg-white-100 p-2 w-full placeholder:italic placeholder:text-[0.6125rem] placeholder:text-[#9C9EA6] lg:placeholder:text-[0.8125rem]"
+            type="email"
+            />
+    </form>
+    
+</div>
