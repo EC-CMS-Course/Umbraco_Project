@@ -18,7 +18,12 @@
     --color-border-400: #C7C8C9;
     --color-support-card: #C4C4C4;
     --font-poppins: "poppins", sans-serif;
-    /*    --text-vad: clamp(1rem, 0.4718rem + 2.1127vw, 2.5rem);*/
+    --text-rte-xl: 4.375rem;
+    --text-rte-lg: 2.5rem;
+    --text-rte-md: 1.25rem;
+    --text-rte-sm: 1rem;
+    --text-rte-xs: .875rem;
+    /*    --text-vad: clamp(1rem, 0.4718rem + 2.1127vw, 2.5rem); Lägg sedan till där du vill ha den*/
 }
 
 
@@ -26,13 +31,36 @@ body {
     @apply font-poppins;
 }
 
-.rte h3 {
-    @apply text-primary font-bold text-[2.5rem];
-/*Lägg till text-vad*/
-}
-
 .wrapper {
     @apply max-w-7xl mx-auto px-4;
+}
+
+.rte p {
+    @apply mb-4;
+}
+
+.rte img {
+    @apply w-full h-auto object-cover mb-8;
+}
+
+.rte h3 {
+    @apply text-[2.5rem] text-primary font-bold;
+}
+
+.rte-ul {
+    @apply list-disc pl-5 mt-3;
+}
+
+    .rte-ul li {
+        @apply text-rte-xs text-body-text mb-3;
+    }
+
+        .rte-ul li::marker {
+            @apply text-secondary;
+        }
+
+.current a {
+    @apply text-secondary;
 }
 
 

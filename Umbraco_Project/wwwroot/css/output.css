@@ -12,6 +12,7 @@
     --container-7xl: 80rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
@@ -22,9 +23,15 @@
     --color-primary: #4F5955;
     --color-secondary: #D9C3A9;
     --color-body-text: #535656;
+    --color-body-text-100: #999999;
     --color-border-gray: #EAEAEA;
     --color-support-card: #C4C4C4;
     --font-poppins: "poppins", sans-serif;
+    --text-rte-xl: 4.375rem;
+    --text-rte-lg: 2.5rem;
+    --text-rte-md: 1.25rem;
+    --text-rte-sm: 1rem;
+    --text-rte-xs: .875rem;
   }
 }
 @layer base {
@@ -188,14 +195,8 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .top-2 {
-    top: calc(var(--spacing) * 2);
-  }
   .top-3 {
     top: calc(var(--spacing) * 3);
-  }
-  .top-\[50\%\] {
-    top: 50%;
   }
   .right-0 {
     right: calc(var(--spacing) * 0);
@@ -239,9 +240,6 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
   .h-\[220px\] {
     height: 220px;
   }
@@ -251,14 +249,8 @@
   .min-h-\[350px\] {
     min-height: 350px;
   }
-  .w-6 {
-    width: calc(var(--spacing) * 6);
-  }
   .w-6\/12 {
     width: calc(6/12 * 100%);
-  }
-  .w-\[1px\] {
-    width: 1px;
   }
   .w-full {
     width: 100%;
@@ -266,17 +258,11 @@
   .w-px {
     width: 1px;
   }
-  .border-collapse {
-    border-collapse: collapse;
-  }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -308,34 +294,24 @@
   .rounded {
     border-radius: 0.25rem;
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
   }
-  .border-border-gray {
-    border-color: var(--color-border-gray);
-  }
   .border-white-100 {
     border-color: var(--color-white-100);
   }
-  .bg-\[\#C4C4C4\] {
-    background-color: #C4C4C4;
-  }
   .bg-\[\@sectionBgColor\] {
     background-color: @sectionBgColor;
+  }
+  .bg-border-gray {
+    background-color: var(--color-border-gray);
   }
   .bg-neutral {
     background-color: var(--color-neutral);
   }
   .bg-primary {
     background-color: var(--color-primary);
-  }
-  .bg-support-card {
-    background-color: var(--color-support-card);
   }
   .bg-white-100 {
     background-color: var(--color-white-100);
@@ -386,6 +362,21 @@
   .text-\[4\.375rem\] {
     font-size: 4.375rem;
   }
+  .text-rte-lg {
+    font-size: var(--text-rte-lg);
+  }
+  .text-rte-md {
+    font-size: var(--text-rte-md);
+  }
+  .text-rte-sm {
+    font-size: var(--text-rte-sm);
+  }
+  .text-rte-xl {
+    font-size: var(--text-rte-xl);
+  }
+  .text-rte-xs {
+    font-size: var(--text-rte-xs);
+  }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
@@ -393,6 +384,10 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .font-light {
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
   }
   .font-normal {
     --tw-font-weight: var(--font-weight-normal);
@@ -402,17 +397,20 @@
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
+  .text-\[1\.375\] {
+    color: 1.375;
+  }
   .text-body-text {
     color: var(--color-body-text);
+  }
+  .text-body-text-100 {
+    color: var(--color-body-text-100);
   }
   .text-primary {
     color: var(--color-primary);
   }
   .text-secondary {
     color: var(--color-secondary);
-  }
-  .text-support-card {
-    color: var(--color-support-card);
   }
   .text-white {
     color: var(--color-white);
@@ -423,29 +421,12 @@
   .no-underline {
     text-decoration-line: none;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
-  }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .placeholder\:text-\[0\.6125rem\] {
     &::placeholder {
       font-size: 0.6125rem;
-    }
-  }
-  .placeholder\:text-\[0\.8125rem\] {
-    &::placeholder {
-      font-size: 0.8125rem;
-    }
-  }
-  .placeholder\:text-\[8\.125rem\] {
-    &::placeholder {
-      font-size: 8.125rem;
     }
   }
   .placeholder\:text-\[\#9C9EA6\] {
@@ -458,21 +439,9 @@
       font-style: italic;
     }
   }
-  .sm\:grid {
-    @media (width >= 40rem) {
-      display: grid;
-    }
-  }
   .md\:grid {
     @media (width >= 48rem) {
       display: grid;
-    }
-  }
-  .md\:placeholder\:text-\[0\.8125rem\] {
-    @media (width >= 48rem) {
-      &::placeholder {
-        font-size: 0.8125rem;
-      }
     }
   }
   .lg\:placeholder\:text-\[0\.8125rem\] {
@@ -486,16 +455,41 @@
 body {
   font-family: var(--font-poppins);
 }
+.wrapper {
+  margin-inline: auto;
+  max-width: var(--container-7xl);
+  padding-inline: calc(var(--spacing) * 4);
+}
+.rte p {
+  margin-bottom: calc(var(--spacing) * 4);
+}
+.rte img {
+  margin-bottom: calc(var(--spacing) * 8);
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
 .rte h3 {
   font-size: 2.5rem;
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
 }
-.wrapper {
-  margin-inline: auto;
-  max-width: var(--container-7xl);
-  padding-inline: calc(var(--spacing) * 4);
+.rte-ul {
+  margin-top: calc(var(--spacing) * 3);
+  list-style-type: disc;
+  padding-left: calc(var(--spacing) * 5);
+}
+.rte-ul li {
+  margin-bottom: calc(var(--spacing) * 3);
+  font-size: var(--text-rte-xs);
+  color: var(--color-body-text);
+}
+.rte-ul li::marker {
+  color: var(--color-secondary);
+}
+.current a {
+  color: var(--color-secondary);
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -529,11 +523,6 @@ body {
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -599,7 +588,6 @@ body {
       --tw-border-style: solid;
       --tw-leading: initial;
       --tw-font-weight: initial;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
