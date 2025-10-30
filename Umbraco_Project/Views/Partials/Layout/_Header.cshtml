@@ -1,0 +1,11 @@
+﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+@{
+	var rootContent = Umbraco.ContentAtRoot();
+	var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+	var logo = siteSettings?.SiteLogo;
+
+	var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
+} *@
