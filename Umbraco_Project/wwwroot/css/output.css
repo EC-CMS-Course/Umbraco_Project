@@ -21,6 +21,7 @@
     --color-neutral: #ffffff;
     --color-white-100: #F7F7F7;
     --color-primary: #4F5955;
+    --color-primary-dark: hsl(156, 6%, 23%);
     --color-secondary: #D9C3A9;
     --color-body-text: #535656;
     --color-body-text-100: #999999;
@@ -436,6 +437,13 @@
   .placeholder\:italic {
     &::placeholder {
       font-style: italic;
+    }
+  }
+  .hover\:bg-primary-dark {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-primary-dark);
+      }
     }
   }
   .md\:grid {
