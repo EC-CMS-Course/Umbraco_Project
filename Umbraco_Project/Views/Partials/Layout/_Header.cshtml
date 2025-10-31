@@ -1,11 +1,82 @@
-﻿@* @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
 
+@inject IVariationContextAccessor VariationContextAccessor
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
 
 @{
-	var rootContent = Umbraco.ContentAtRoot();
-	var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
-
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
 	var logo = siteSettings?.SiteLogo;
+    var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
+}
 
-	var selection = Model.Root().Children().Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
-} *@
+
+<header class=" shadow-sm z-[999]">
+    <nav class="relative wrapper flex items-center justify-between py-4">
+
+        @if (logo != null)
+        {
+            <a href="/" class="flex-shrink-0">
+                <img src="@logo.Url()" alt="Onatrix logo">
+            </a>
+        } else
+        {
+            <a href="/" class="flex-shrink-0">
+                <p class="font-bold text-primary text-[2.5rem]">Onatrix</p>
+            </a>
+        }
+
+        @if (selection?.Length > 0)
+        {
+            <ul class="hidden md:flex items-center gap-16">
+                @foreach (var item in selection)
+                {
+                    <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null) ">
+                        <a class="font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                    </li>
+                }
+            </ul>
+        }
+
+        <div class="flex items-center gap-2">
+
+            <button type="button" class="md:hidden" id="menuToggle">
+                <i class="fa-solid fa-bars text-lg text-primary cursor-pointer"></i>
+            </button>
+
+            <button type="button">
+                <i class="fa-solid fa-magnifying-glass text-lg text-primary cursor-pointer"></i>
+            </button>
+
+        </div>
+
+        <nav 
+            id="mobileMenu" 
+            class="absolute right-0 top-17 bg-primary z-50 rounded shadow-sm w-64 py-8 flex flex-col items-center justify-center md:hidden">
+            @if (selection?.Length > 0)
+            {
+                <ul class="">
+                    @foreach (var item in selection)
+                    {
+                        <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null) font-bold text-white py-4 px-20 rounded hover:bg-primary-dark transition-colors">
+                            <a class=""
+                               href="@item.Url(PublishedUrlProvider)">@item.Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+        </nav>
+
+    </nav>
+
+   
+</header>
+
