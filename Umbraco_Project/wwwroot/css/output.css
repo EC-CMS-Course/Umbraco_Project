@@ -304,6 +304,9 @@
   .flex-shrink-0 {
     flex-shrink: 0;
   }
+  .shrink-0 {
+    flex-shrink: 0;
+  }
   .flex-grow {
     flex-grow: 1;
   }
@@ -645,11 +648,21 @@
       display: none;
     }
   }
+  .lg\:block {
+    @media (width >= 64rem) {
+      display: block;
+    }
+  }
   .lg\:placeholder\:text-\[0\.8125rem\] {
     @media (width >= 64rem) {
       &::placeholder {
         font-size: 0.8125rem;
       }
+    }
+  }
+  .xl\:block {
+    @media (width >= 80rem) {
+      display: block;
     }
   }
 }
