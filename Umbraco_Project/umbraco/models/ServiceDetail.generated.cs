@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Service Detail</summary>
 	[PublishedModel("serviceDetail")]
-	public partial class ServiceDetail : PublishedContentModel
+	public partial class ServiceDetail : PublishedContentModel, IPageBanner
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -88,5 +88,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("serviceDetailAsidesList")]
 		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ServiceDetailAsidesList => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "serviceDetailAsidesList");
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageBanner.GetPageTitle(this, _publishedValueFallback);
 	}
 }
