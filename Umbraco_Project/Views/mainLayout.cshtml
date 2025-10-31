@@ -29,5 +29,42 @@
 
     @RenderBody()
 
+
+    @* <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("menuToggle");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            // Se till att menyn är stängd från början
+            mobileMenu.classList.add("hidden");
+
+            // Toggle vid klick på hamburgarikonen
+            toggleBtn?.addEventListener("click", (e) => {
+                e.stopPropagation(); // Förhindra att klicket bubblar vidare
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Stäng när man klickar på en länk i menyn
+            mobileMenu?.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.add("hidden");
+                });
+            });
+
+            // Stäng när man klickar utanför menyn
+            document.addEventListener("click", (e) => {
+                const isClickInsideMenu = mobileMenu.contains(e.target);
+                const isClickOnToggle = toggleBtn.contains(e.target);
+
+                if (!isClickInsideMenu && !isClickOnToggle) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script> *@
+
+    <script src="~/Javascript/mobileMenu.js"></script>
+
+
 </body>
 </html>
