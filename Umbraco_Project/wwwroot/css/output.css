@@ -658,9 +658,19 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .md\:text-\[4\.375rem\] {
+    @media (width >= 48rem) {
+      font-size: 4.375rem;
+    }
+  }
   .lg\:block {
     @media (width >= 64rem) {
       display: block;
+    }
+  }
+  .lg\:text-\[4\.375rem\] {
+    @media (width >= 64rem) {
+      font-size: 4.375rem;
     }
   }
   .lg\:placeholder\:text-\[0\.8125rem\] {
