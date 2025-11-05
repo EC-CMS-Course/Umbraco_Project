@@ -1,4 +1,6 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿//ALL JAVASCRIPT I FILEN GENERERAD AV CHATGPT5
+
+document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("menuToggle");
     const mobileMenu = document.getElementById("mobileMenu");
 
