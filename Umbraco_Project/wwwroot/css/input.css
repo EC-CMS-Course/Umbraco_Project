@@ -1,5 +1,5 @@
 ﻿@import "tailwindcss";
-/*@import "./forms.css";*/
+@import "./forms.css";
 
 @theme {
     --color-neutral: #ffffff;
@@ -40,7 +40,7 @@ body {
     @apply mb-4;
 }
 
-.rte img {
+.rte-service-detail img {
     @apply w-full h-auto object-cover mb-8;
 }
 
