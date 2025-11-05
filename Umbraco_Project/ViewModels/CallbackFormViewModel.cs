@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 
 namespace Umbraco_Project.ViewModels;
 
@@ -22,4 +23,6 @@ public class CallbackFormViewModel
     [Required(ErrorMessage = "Please select an option")]
     public string SelectedOption { get; set; } = null!;
 
+    [BindNever]
+    public IEnumerable<string> Options { get; set; } = [];
 }

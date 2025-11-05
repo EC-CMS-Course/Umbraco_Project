@@ -7,9 +7,13 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-50: oklch(97.1% 0.013 17.38);
     --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-700: oklch(50.5% 0.213 27.518);
+    --color-green-50: oklch(98.2% 0.018 155.826);
+    --color-green-700: oklch(52.7% 0.154 150.069);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-white: #F2EDDC;
@@ -273,6 +277,27 @@
   .col-span-8 {
     grid-column: span 8 / span 8;
   }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-\[2rem\] {
+    margin-inline: 2rem;
+  }
   .-mt-\[11rem\] {
     margin-top: calc(11rem * -1);
   }
@@ -393,6 +418,9 @@
   .rounded {
     border-radius: 0.25rem;
   }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -423,11 +451,17 @@
   .bg-border-gray {
     background-color: var(--color-border-gray);
   }
+  .bg-green-50 {
+    background-color: var(--color-green-50);
+  }
   .bg-neutral {
     background-color: var(--color-neutral);
   }
   .bg-primary {
     background-color: var(--color-primary);
+  }
+  .bg-red-50 {
+    background-color: var(--color-red-50);
   }
   .bg-white-100 {
     background-color: var(--color-white-100);
@@ -582,6 +616,9 @@
   .text-gray-500 {
     color: var(--color-gray-500);
   }
+  .text-green-700 {
+    color: var(--color-green-700);
+  }
   .text-neutral {
     color: var(--color-neutral);
   }
@@ -590,6 +627,9 @@
   }
   .text-red-500 {
     color: var(--color-red-500);
+  }
+  .text-red-700 {
+    color: var(--color-red-700);
   }
   .text-secondary {
     color: var(--color-secondary);
