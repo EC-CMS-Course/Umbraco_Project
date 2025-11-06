@@ -1,0 +1,46 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SuccessStorySection)Model.Content;
+    var statisticsList = content.SuccessStorySectionStatisticsList;
+
+}
+
+<section class="bg-primary py-20">
+    <div class="wrapper relative">
+
+        <div class="absolute right-0 left-0 top-0 ">
+            @if (content.SuccessStorySectionBgImage != null) {
+                <img src="@content.SuccessStorySectionBgImage.Url()" />
+            }
+        </div>
+
+        <div class="flex flex-col items-center">
+            <div>@Html.Raw(content.SuccessStorySectionLabel)</div>
+            <h2 class="text-white font-bold text-[2.5rem] text-center">@content.SuccessStorySectionTitle</h2>
+        </div>
+
+        <div class="flex pt-5 pb-5 -mx-2">
+            @if (statisticsList != null)
+            {
+                for (var i = 0; i < statisticsList.Count; i++)
+                {
+                    var listItem = statisticsList[i];
+                    @* var colClass = i < 3 ? "w-1/3" : "w-1/4"; *@
+
+                    <div class="w-1/3 px-2">
+                        <partial name="Partials/Blocklist/Components/SuccessStoryStatisticItem" model="listItem" />
+                    </div>
+                }
+            }
+        </div>
+
+        <div>
+            @if (content.SuccessStorySectionImage != null)
+            {
+                <img src="@content.SuccessStorySectionImage.Url()" />
+            }
+        </div>
+
+    </div>
+</section>
