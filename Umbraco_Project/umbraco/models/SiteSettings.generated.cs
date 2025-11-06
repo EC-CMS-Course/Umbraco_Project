@@ -74,6 +74,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ContactPhoneNumber => this.Value<string>(_publishedValueFallback, "contactPhoneNumber");
 
 		///<summary>
+		/// Copyright Notice Company
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("copyrightNoticeCompany")]
+		public virtual string CopyrightNoticeCompany => this.Value<string>(_publishedValueFallback, "copyrightNoticeCompany");
+
+		///<summary>
+		/// Copyright Notice Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("copyrightNoticeText")]
+		public virtual string CopyrightNoticeText => this.Value<string>(_publishedValueFallback, "copyrightNoticeText");
+
+		///<summary>
 		/// Platform List
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
