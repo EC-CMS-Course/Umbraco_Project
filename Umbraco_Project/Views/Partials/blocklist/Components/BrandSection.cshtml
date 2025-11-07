@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.BrandSection)Model.Content;
+    var brandLogoList = content.BrandLogoList;
+}
+
+<section class="pb-16">
+    <div class="wrapper">
+
+        <div class="flex justify-between gap-4 items-center">
+
+            @if (brandLogoList != null) 
+            {
+                @foreach (var brand in brandLogoList)
+                {
+                    <partial name="Partials/Blocklist/Components/Brand" model="brand" />
+                }
+            } 
+            
+        </div>
+
+    </div>
+</section>
