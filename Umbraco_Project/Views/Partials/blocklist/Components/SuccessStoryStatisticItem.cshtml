@@ -4,7 +4,7 @@
     var content = (ContentModels.SuccessStoryStatisticItem)Model.Content;
 }
 
-<div class="flex flex gap-2 items-center">
-    <p class="text-[6.25rem] text-secondary font-semibold text-center"></p>
-    <p class="text-[1.125rem] text-white font-semibold text-center"></p>
+<div class="flex flex-col items-center">
+    <p class="lg:text-[6.25rem] md:text-[3.75rem] text-[2.5rem] text-secondary font-semibold text-center">@content.SuccessStoryStatisticItemNumber</p>
+    <p class="lg:text-[1.125rem] text-[0.875] text-white md:font-semibold text-center">@content.SuccessStoryStatisticItemText</p>
 </div>
