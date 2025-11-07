@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SwebankReviewSection)Model.Content;
+   
+}
+
+<section class="py-16 flex">
+
+    
+
+    <div class="lg:w-1/2 bg-white-100 mx-auto">
+        <div class="rte text-center pt-8 lg:w-full lg:text-left lg:pl-12 xl:pl-24 lg:pr-12">@Html.Raw(content.SwebankReviewBodyText)</div>
+    </div>
+
+    <div class="hidden lg:block lg:w-1/2">
+        @if (content.SwebankReviewImage != null)
+        {
+            <img src="@content.SwebankReviewImage.Url()" class="object-cover h-full shrink-0" />
+        }    
+    </div>
+
+</section>
+
+
+
+
+
+
