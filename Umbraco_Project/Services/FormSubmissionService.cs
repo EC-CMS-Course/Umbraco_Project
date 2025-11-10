@@ -34,30 +34,29 @@ public class FormSubmissionService(IContentService contentService)
         }
     }
 
-    //public bool SaveQuestionFormRequest(QuestionFormViewModel model)
-    //{
-    //    try
-    //    {
-    //        var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
-    //        if (container == null)
-    //        {
-    //            return false;
-    //        }
+    public bool SaveQuestionFormRequest(QuestionFormViewModel model)
+    {
+        try
+        {
+            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "questionFormSubmissions");
+            if (container == null)
+            {
+                return false;
+            }
 
-    //        var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
-    //        var request = _contentService.Create(requestName, container, "callbackRequest");
+            var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Name}";
+            var request = _contentService.Create(requestName, container, "questionFormRequest");
 
-    //        request.SetValue("callbackRequestName", model.Name);
-    //        request.SetValue("callbackRequestEmail", model.Email);
-    //        request.SetValue("callbackRequestPhone", model.Phone);
-    //        request.SetValue("callbackRequestOption", model.SelectedOption);
+            request.SetValue("questionFormRequestName", model.Name);
+            request.SetValue("questionFormRequestEmail", model.Email);
+            request.SetValue("questionFormRequestQuestion", model.Question);
 
-    //        var saveResult = _contentService.Save(request);
-    //        return saveResult.Success;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        return false;
-    //    }
-    //}
+            var saveResult = _contentService.Save(request);
+            return saveResult.Success;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
 }
