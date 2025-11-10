@@ -1,22 +1,4 @@
-﻿//document.addEventListener("submit", function (e) {
-//    if (e.target.matches("form")) {
-//        sessionStorage.setItem("scrollY", window.scrollY);
-//    }
-//});
-
-//document.addEventListener("DOMContentLoaded", () => {
-//    const scrollY = sessionStorage.getItem("scrollY");
-//    if (scrollY) {
-//        window.scrollTo({ top: parseInt(scrollY, 10), behavior: "instant" });
-//        sessionStorage.removeItem("scrollY");
-//    }
-//})
-
-
-
-
-
-//ALL JAVASCRIPTS-VALIDERING GENERERAD AV CHATGPT5
+﻿//ALL JAVASCRIPTS-VALIDERING GENERERAD AV CHATGPT5
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("callbackForm");

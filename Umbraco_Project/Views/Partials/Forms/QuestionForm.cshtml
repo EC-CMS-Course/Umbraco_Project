@@ -1,0 +1,41 @@
+﻿@using Umbraco_Project.ViewModels
+@model QuestionFormViewModel
+
+@using (Html.BeginUmbracoForm("HandleQuestionForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
+{
+
+    <div class="px-[2rem] grid place-items-center md:grid-cols-2 md:grid-rows-4 gap-6">
+
+        <div class="">
+            <label asp-for="Name" class="sr-only"></label>
+            <input asp-for="Name" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" class="w-full p-3 italic border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="">
+            <label asp-for="Email" class="sr-only"></label>
+            <input asp-for="Email" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" class="w-full p-3 italic border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+            <span asp-validation-for="Email"></span>
+        </div>
+
+
+        <div class="col-span-full row-span-2">
+            <label asp-for="Question" class="sr-only"></label>
+            <textarea asp-for="Question" type="text" placeholder="@Html.DisplayNameFor(x => x.Question)" class="w-full p-3 italic border border-gray-300 focus:ring-2 focus:ring-primary focus:outline-none" />
+            <span asp-validation-for="Question"></span>
+        </div>
+
+        <div class="pb-[2.5rem]">
+            <button type="submit" class="bg-primary text-white py-3 px-10 no-underline rounded self-start font-bold cursor-pointer hover:bg-primary-dark">Submit</button>
+        </div>
+    </div>
+
+
+    
+    
+
+
+
+}
+
+
