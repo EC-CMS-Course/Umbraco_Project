@@ -1,0 +1,51 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco_Project.ViewModels
+@{
+    var content = (ContentModels.MapNextProjectSection)Model.Content;
+    var settings = Model.Settings as ContentModels.MapNextProjectSettings;
+
+    var formVM = new CallbackFormViewModel
+    {
+        Options = settings?.MapNextProjectFormOptions ?? []
+    };
+}
+
+<section class=" grid place-items-center mb-16">
+    <div>
+        @if (content.MapNextProjectImage != null)
+        {
+            <img class="w-full h-full object-cover" src="@content.MapNextProjectImage.Url()" />
+        }
+    </div>
+
+    <div class=" top-30 bg-neutral grid place-items-center gap-8 w-2/3 p-4 shadow-lg -mt-20 md:-mt-50 lg:-mt-80">
+
+        <div class="grid place-items-center gap-2 w-6/10">
+            <p class="uppercase text-secondary text-[0.875rem] font-bold text-center">@content.MapNextProjectLabel</p>
+            <h2 class="text-primary font-bold text-center text-[1.375rem] md:text-[2.5rem]">@content.MapNextProjectTitle</h2>
+			<p class="text-[0.875rem] italic text-body-text text-center lg:text-left">@content.MapNextProjectDescription</p>
+        </div>
+
+        <div class="w-full">
+            <partial name="Partials/Forms/_NextProjectForm" model="formVM" />
+
+            @if (TempData["FormSuccess"] != null)
+            {
+                <div class="bg-green-50 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
+                    @TempData["FormSuccess"]
+                </div>
+            }
+            else if (TempData["FormError"] != null)
+            {
+                <div class="bg-red-50 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
+                    @TempData["FormError"]
+                </div>
+            }
+        </div>
+          
+    </div>
+
+
+
+</section>
