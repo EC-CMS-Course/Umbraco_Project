@@ -19,7 +19,6 @@
     --color-black: #000;
     --color-white: #F2EDDC;
     --spacing: 0.25rem;
-    --container-2xl: 42rem;
     --container-7xl: 80rem;
     --text-xs: 0.75rem;
     --text-xs--line-height: calc(1 / 0.75);
@@ -1081,6 +1080,13 @@ body {
   height: auto;
   width: 100%;
   object-fit: cover;
+}
+.rte-swebank-review img {
+  margin-inline: auto;
+  display: block;
+  @media (width >= 64rem) {
+    margin-inline: calc(var(--spacing) * 0);
+  }
 }
 .rte h3 {
   font-size: 2.5rem;
