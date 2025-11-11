@@ -9,3 +9,9 @@
 .field-validation-error {
     @apply mt-1 block text-sm text-red-600;
 }
+
+
+.next-project-form .field-validation-error,
+.next-project-form [data-valmsg-for] {
+    @apply block min-h-[1.25rem]; 
+}
