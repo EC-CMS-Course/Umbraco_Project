@@ -48,7 +48,7 @@
             </ul>
         }
 
-        @* HAMBURGERMENU AND SEARCH ICON *@
+        @* HAMBURGERMENU BUTTON AND SEARCH BUTTON *@
         <div class="flex items-center gap-2">
 
             <button type="button" class="md:hidden" id="menuToggle">
@@ -65,7 +65,7 @@
         @* MOBILE MENU *@
         <nav 
             id="mobileMenu" 
-            class="absolute right-0 top-17 bg-primary z-50 rounded shadow-sm w-64 py-8 flex flex-col items-center justify-center md:hidden">
+            class="absolute right-0 top-17 bg-primary z-1 rounded shadow-sm w-50 py-8 flex flex-col items-center justify-center md:hidden hidden">
             @if (selection?.Length > 0)
             {
                 <ul class="">
