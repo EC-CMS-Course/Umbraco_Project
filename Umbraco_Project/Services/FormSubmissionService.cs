@@ -59,4 +59,28 @@ public class FormSubmissionService(IContentService contentService)
             return false;
         }
     }
+
+    public bool SaveSupportFormRequest(SupportFormViewModel model)
+    {
+        try
+        {
+            var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "supportFormSubmissions");
+            if (container == null)
+            {
+                return false;
+            }
+
+            var requestName = $"{DateTime.Now:yyyy-MM-dd HH:mm} - {model.Email}";
+            var request = _contentService.Create(requestName, container, "supportFormRequest");
+
+            request.SetValue("supportFormRequestEmail", model.Email);
+
+            var saveResult = _contentService.Save(request);
+            return saveResult.Success;
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+    }
 }

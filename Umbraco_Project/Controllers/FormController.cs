@@ -25,7 +25,7 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         var result = _formSubmissionService.SaveCallbackRequest(model);
         if (!result)
         {
-            TempData["CallbackFormError"] = "Something went wring while subbmitting your request. Please try again.";
+            TempData["CallbackFormError"] = "Something went wrong while subbmitting your request. Please try again.";
             return RedirectToCurrentUmbracoPage();
         }
 
@@ -43,11 +43,29 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         var result = _formSubmissionService.SaveQuestionFormRequest(model);
         if (!result)
         {
-            TempData["QuestionFormError"] = "Something went wring while subbmitting your question. Please try again.";
+            TempData["QuestionFormError"] = "Something went wrong while subbmitting your question. Please try again.";
             return RedirectToCurrentUmbracoPage();
         }
 
         TempData["QuestionFormSuccess"] = "Thank you! Your question has been recieved and we will get back to you soon";
+        return RedirectToCurrentUmbracoPage();
+    }
+
+    public IActionResult HandleSupportForm(SupportFormViewModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return CurrentUmbracoPage();
+        }
+
+        var result = _formSubmissionService.SaveSupportFormRequest(model);
+        if (!result)
+        {
+            TempData["SupportFormError"] = "Something went wrong. Please try again.";
+            return RedirectToCurrentUmbracoPage();
+        }
+
+        TempData["SupportFormSuccess"] = "Thank you!";
         return RedirectToCurrentUmbracoPage();
     }
 

@@ -1,7 +1,7 @@
 ﻿@using Umbraco_Project.ViewModels
 @model QuestionFormViewModel
 
-@using (Html.BeginUmbracoForm("HandleQuestionForm", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "callbackForm" }))
+@using (Html.BeginUmbracoForm("HandleQuestionForm", "Form", FormMethod.Post, new { novalidate = "novalidate", @class = "validate-form" }))
 {
 
     <div class="grid md:grid-cols-2 gap-6">
