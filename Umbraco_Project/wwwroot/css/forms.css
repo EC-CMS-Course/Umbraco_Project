@@ -15,3 +15,11 @@
 .next-project-form [data-valmsg-for] {
     @apply block min-h-[1.25rem]; 
 }
+
+input {
+    @apply placeholder:text-[0.8125rem] md:placeholder:text-[1rem];
+}
+
+.support-form-input  {
+    @apply placeholder:text-[0.6125rem] lg:placeholder:text-[.8125rem];
+}
