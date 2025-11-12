@@ -30,16 +30,16 @@
         <div class="w-full">
             <partial name="Partials/Forms/_NextProjectForm" model="formVM" />
 
-            @if (TempData["FormSuccess"] != null)
+            @if (TempData["CallbackFormSuccess"] != null)
             {
                 <div class="bg-green-50 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
-                    @TempData["FormSuccess"]
+                    @TempData["CallbackFormSuccess"]
                 </div>
             }
-            else if (TempData["FormError"] != null)
+            else if (TempData["CallbackFormError"] != null)
             {
                 <div class="bg-red-50 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
-                    @TempData["FormError"]
+                    @TempData["CallbackFormError"]
                 </div>
             }
         </div>
