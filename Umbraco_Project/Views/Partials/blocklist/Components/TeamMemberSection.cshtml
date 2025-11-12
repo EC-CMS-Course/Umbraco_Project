@@ -20,7 +20,7 @@
                 for (var i = 0; i < teamList.Count; i++)
                 {
                     var member = teamList[i];
-                    var colClass = i < 3 ? "w-1/3" : "w-1/4";
+                    var colClass = i < 3 ? "w-1/2 md:w-1/3" : "w-1/2 md:w-1/4";
 
                     <div class="@colClass px-2">
                         <partial name="Partials/Blocklist/Components/TeamMember" model="member" />

@@ -11,16 +11,18 @@
 	};
 }
 
-<section class="py-28">
-    <div class="wrapper flex gap-10">
+<section class="py-8 md:py-16 lg:py-28">
+    <div class="wrapper flex flex-col md:flex-row md:gap-10">
 
-        <div class="flex flex-col w-7/12">
+        @* LEFT COLUMN *@
+        <div class="flex flex-col mb-8 md:mb-0 md:w-7/12">
             <div class="rte">
 				@Html.Raw(content.AboutCallbackSectionBody)
             </div> 
         </div>
 
-        <div class="flex flex-col w-5/12 shadow-md -mt-[11rem] z-[99]">
+        @* RIGHT COLUMN *@
+        <div class="flex flex-col md:w-5/12 shadow-md md:-mt-[11rem] z-[99]">
             <div class="bg-primary">
                 <p class="text-accent py-[1.5rem] px-[2rem] text-[1.875rem] font-bold">@content.AboutCallbackFormTitle</p>
             </div>
@@ -41,12 +43,8 @@
                     @TempData["CallbackFormError"]
                 </div>
             }
-
-            
-
-           
-
         </div>
 
     </div>
 </section>
+
