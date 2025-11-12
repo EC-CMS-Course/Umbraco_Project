@@ -38,6 +38,12 @@
     }
   },
   "ConnectionStrings": {
- 
+
+  },
+  //Added for Azure Communication Services Email
+  "ACS": {
+    "ConnectionString": "",
+    "SenderAddress": ""
   }
+  //End Added for Azure Communication Services Email
 }

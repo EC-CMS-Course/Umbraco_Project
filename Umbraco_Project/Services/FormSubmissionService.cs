@@ -1,16 +1,19 @@
-﻿using Umbraco.Cms.Core.Services;
+﻿using System.Diagnostics;
+using Umbraco.Cms.Core.Services;
+using Umbraco_Project.Interfaces;
 using Umbraco_Project.ViewModels;
 
 namespace Umbraco_Project.Services;
 
-public class FormSubmissionService(IContentService contentService)
+public class FormSubmissionService(IContentService contentService) : IFormSubmissionService
 {
     private readonly IContentService _contentService = contentService;
+   
 
     public bool SaveCallbackRequest(CallbackFormViewModel model)
     {
-		try
-		{
+        try
+        {
             var container = _contentService.GetRootContent().FirstOrDefault(x => x.ContentType.Alias == "formSubmissions");
             if (container == null)
             {
@@ -28,8 +31,9 @@ public class FormSubmissionService(IContentService contentService)
             var saveResult = _contentService.Save(request);
             return saveResult.Success;
         }
-		catch (Exception ex)
-		{
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
             return false;
         }
     }
@@ -56,6 +60,7 @@ public class FormSubmissionService(IContentService contentService)
         }
         catch (Exception ex)
         {
+            Debug.WriteLine(ex.Message);
             return false;
         }
     }
@@ -80,6 +85,7 @@ public class FormSubmissionService(IContentService contentService)
         }
         catch (Exception ex)
         {
+            Debug.WriteLine(ex.Message);
             return false;
         }
     }
