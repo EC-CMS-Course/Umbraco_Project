@@ -4,6 +4,7 @@
     "tailwindcss": "^4.1.16"
   },
   "scripts": {
-    "dev": "npx @tailwindcss/cli -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch",
+    "prod": "npx @tailwindcss/cli -i ./wwwroot/css/input.css -o ./wwwroot/css/mini.css --minify"
   }
 }
